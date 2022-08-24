@@ -9,11 +9,10 @@ jobs:
       # Use the same Docker base as the project
       - image: python:3.7.3-stretch
 
-    working_directory: ~/repo/sub_folder
+    working_directory: ~/repo/project-ml-microservice-kubernetes
 
     steps:
-      - checkout:
-          path: ~/repo
+      - checkout
 
       # Download and cache dependencies
       - restore_cache:
@@ -23,7 +22,7 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: "install dependencies"
+          name: install dependencies
           command: |
             python3 -m venv venv
             . venv/bin/activate
